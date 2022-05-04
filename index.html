@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Digital Watch</h1>
+    <div id="displayclock"></div>
+    <script>
+         function showtime(){
+        let date = new Date();
+        let h = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        let session = 'AM';
+
+        if (h>=12){
+            h = h-12;
+            session = 'PM'
+        }
+        if (h==0){
+            h=12
+        }
+        h<10 ? h = "0"+h : h;
+        min <10 ? min = "0" + min: min;
+        sec <10 ? sec='0'+sec:sec;
+
+        let digitime = document.getElementById('displayclock');
+                digitime.innerText = h + ':'+ min + ':'+ sec+ ' '+session;
+                setTimeout(showtime,1000)
+            }
+            showtime();
+     
+
+        </script>
+</body>
+</html>
